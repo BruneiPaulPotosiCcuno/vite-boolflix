@@ -19,7 +19,7 @@ export default {
 <template>
    
     <div>    
-        <select name="" id=""></select>
+        <select name="" id="">Hola</select>
     </div>
     
 </template>
