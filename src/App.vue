@@ -57,9 +57,11 @@ export default {
 
 <template>
   <AppHeader @searchUser="searchMedia"></AppHeader>
-  <AppView></AppView>
+    <AppView></AppView>
 </template>
 
 <style lang="scss">
+
 @use '../src/style/generic.scss' as *;
+
 </style>

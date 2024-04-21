@@ -1,87 +1,93 @@
-
 <script>
 import { store } from '../store.js';
+
 export default {
-    name: 'AppHeader',
-    data() {
-        return {
-            store
-        };
-    },
+  name: 'AppHeader',
+  data() {
+    return {
+      store
+    };
+  },
 }
 </script>
 
 <template>
-    <header class="container">
-        <h1>BOOLFLIX</h1>
-        <div class="nav-search">
-            <input type="text" class="imput-css" v-model="store.searchText">
-            <button @click="$emit('searchUser')" href="" class="original-button">Cerca</button>
-        </div>
-
-    </header>
-    
-
+  <header>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a href="#" class="logo-text">BOOLFLIX</a>
+      </div>
+      <div class="search-container">
+        <input type="text" class="search-input" v-model="store.searchText" placeholder="Cerca..">
+        <button @click="$emit('searchUser')" class="search-button">
+          <span>Cerca</span>
+        </button>
+      </div>
+    </nav>
+  </header>
 </template>
 
 <style scoped lang="scss">
+header {
+  background-color: #000000;
+  padding: 10px;
+}
 
-    .container{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        
-        .imput-css{
-        height: 20px;
-        padding: 4px;
-        font-size: 16px;
-        background-color: #FFFFFF;
-        color: #000000;
-        border-style: solid;
-        border-radius: 0px;
-        box-shadow: 1px 0px 7px rgba(220,41,41,.73);
-        text-shadow: -50px 0px 0px rgba(66,66,66,.75);
-        }
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-        
-    }
+.navbar-brand {
+  .logo-text {
+    color: #e50914;
+    font-size: 40px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
 
-    header{
-        
-        font-size: 20px;
-        background-color: rgb(0, 0, 0);
-        height: 80px;
-
-        
-        
-        h1{
-            
-            align-items: center;
-            position: relative;
-            left: 90px;
-            color: #f34144;
-            font-weight: 600;
-        }
-
-
-    }
-
-    .original-button {
-  justify-content: center;
-  line-height: 1;
-  text-decoration: none;
-  font-size: 15px;
-  border-radius: 0px;
-  width: 200px;
-  height: 40px;
-  border: 2px solid #333333;
-  transition: 0.3s;
+.search-container {
+  display: flex;
+  align-items: center;
   background-color: #ffffff;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
-.original-button:hover {
-  box-shadow: 0 0 #333;
-  color: #fff;
-  background-color: #333;
+.search-input {
+  border: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  flex-grow: 1;
+
+  &:focus {
+    outline: none;
+  }
 }
+
+.search-button {
+  background-color: #e50914;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 10px;
+
+  &:hover {
+    background-color: #c11324;
+  }
+
+  span {
+    margin-left: 8px;
+  }
+}
+
+
 </style>
