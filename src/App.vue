@@ -16,6 +16,7 @@ export default {
     };
   },
   methods: {
+    //!CHIAMATA PER I MOVIES
     getMoviesFromApi() { 
       const queryParams = {
         api_key: store.apiKey,
@@ -28,17 +29,34 @@ export default {
         store.movies = response.data.results;
       });
     },
+
+    //!chiamata per series
+
+    getSeriesFromApi() {
+      const queryParams = {
+        api_key: store.apiKey,
+        query: store.searchText
+      };     
+
+      axios.get('https://api.themoviedb.org/3/search/tv', {
+        params: queryParams
+      }).
+      then((response) => {
+        store.series = response.data.results;
+      });
+    },
+    searchMedia() {
+      this.getMoviesFromApi();
+      this.getSeriesFromApi();
+    }
   },
 
 }
 
-
-
-
 </script>
 
 <template>
-  <AppHeader @searchUser="getMoviesFromApi"></AppHeader>
+  <AppHeader @searchUser="searchMedia"></AppHeader>
   <AppView></AppView>
 </template>
 
